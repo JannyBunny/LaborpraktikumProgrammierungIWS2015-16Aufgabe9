@@ -11,10 +11,10 @@
  * @version (2015.11.05)
  */
 
-/*Ich sehe aus qwie Omar Sharif*/
 public class Tanksaeule
 {
-    private int preisProLiter; // Der Preis pro Liter Kraftstoff
+    public static final int mindestAbhanmeMenge = 5;
+    public int preisProLiter; // Der Preis pro Liter Kraftstoff,
     private int getankteLiter; // Die Anzahl der getankten Liter für das eingeworfene Geld (geldBisherBezahlt)
     private int getankteLiterGesamt; // Die gesamten ausgegebenen Liter 
     private int betragGesamt; // Der gesamte eingenommene Betrag
@@ -23,26 +23,35 @@ public class Tanksaeule
     /**
      * Konstruktor für Objekte der Klasse Tankaeule
      */
-     public Tanksaeule(int preisproliter,String kraftStoffName)
+     public Tanksaeule(int preisProLiter,String kraftStoffName)
     {
-         preisProLiter = preisproliter;
-         kraftstoff = kraftStoffName;
-         getankteLiter = 0;
-         getankteLiterGesamt = 0;
-         betragGesamt = 0;
-         geldBisherBezahlt = 0;
+         this.preisProLiter = preisProLiter;
+         this.kraftstoff = kraftStoffName;
+         this.getankteLiter = 0;
+         this.getankteLiterGesamt = 0;
+         this.betragGesamt = 0;
+         this.geldBisherBezahlt = 0;
 
     }
     public void geldEinwerfen (int geldeingeworfen)
     {
-        geldBisherBezahlt = geldeingeworfen;
+        this.geldBisherBezahlt = geldeingeworfen;
     }
-    public void preisAendern (int neuerPreis)
+    //kein explizieter setter benoetigt, weil nix gerechnet wird. methode kann auch direkt public deklariert werden 
+    /*public void preisAendern (int neuerPreis) 
     {
-        preisProLiter = neuerPreis;
-    }
-    public void tanken ()
+        this.preisProLiter = neuerPreis;
+    }*/
+    
+    public void tanken () throws Exception
     {
-        return;
+        if(this.geldBisherBezahlt * this.preisProLiter < Tanksaeule.mindestAbhanmeMenge)
+        {
+            throw new Exception("Sie muessen min. 5 Liter tanken");
+        }
+        this.getankteLiter = this.preisProLiter * this.geldBisherBezahlt;
+        this.getankteLiterGesamt += this.getankteLiter;
+        this.betragGesamt += this.geldBisherBezahlt;
+        this.geldBisherBezahlt = 0;
     }
 }
