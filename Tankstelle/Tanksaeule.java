@@ -10,6 +10,8 @@
  * @author (Jan-René Grünhagen) 
  * @version (2015.11.05)
  */
+
+/*Ich sehe aus qwie Omar Sharif*/
 public class Tanksaeule
 {
     private int preisProLiter; // Der Preis pro Liter Kraftstoff
@@ -41,6 +43,6 @@ public class Tanksaeule
     }
     public void tanken ()
     {
-        getankteLiterGesamt;
+        return;
     }
 }
