@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=preisproliter\ kraftStoffName
+comment0.target=Tanksaeule(int,\ java.lang.String)
+comment0.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Tankaeule\r\n
+comment1.params=geldeingeworfen
+comment1.target=void\ geldEinwerfen(int)
+comment2.params=neuerPreis
+comment2.target=void\ preisAendern(int)
+numComments=3
