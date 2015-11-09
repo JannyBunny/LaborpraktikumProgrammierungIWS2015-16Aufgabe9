@@ -10,8 +10,6 @@
  * @author (Jan-René Grünhagen) 
  * @version (2015.11.05)
  */
-
-/*Ich sehe aus qwie Omar Sharif*/
 public class Tanksaeule
 {
     private int preisProLiter; // Der Preis pro Liter Kraftstoff
@@ -22,7 +20,8 @@ public class Tanksaeule
     private String kraftstoff; // Welcher Kraftstoff wird an der Zapfsäule ausgegeben?
     /**
      * Konstruktor für Objekte der Klasse Tankaeule
-     * Zunächst wird 
+     * Zunaechst wird die Zapfsaeule kreirt, welche die Werte für den Preis pro Liter und den Kraftstoff benötigt.
+     * Die restlichen Werte werden mit 0 initialisiert.
      */
      public Tanksaeule(int preisproliter,String kraftStoffName)
     {
@@ -34,16 +33,41 @@ public class Tanksaeule
          geldBisherBezahlt = 0;
 
     }
+    /**
+     * Mit der Methode "geldEinwerfen" wird der Einwurf des Geldes in die Zapfsaeule abgegbildet.
+     * Dort kann nun Geld eingworfen werden.
+     * Es wird ausserdem geprüft, ob das eingeworfene Geld plausibel ist.
+     */
     public void geldEinwerfen (int geldeingeworfen)
     {
-        geldBisherBezahlt = geldeingeworfen;
+      if (geldeingeworfen >= 0) {
+          geldBisherBezahlt = geldeingeworfen;
+      }
+      else
+      {
+          System.err.println("Bitte nur positive Geldbeträge einwerfen!");
+      }  
     }
+    /**
+     * Mit der Methode "preisAendern" kann der initial festgelegte Preis pro Liter angepasst werden.
+     * Es wird auch überprüft, ob noch ein Tankvorgang laeuft.
+     */
     public void preisAendern (int neuerPreis)
     {
-        preisProLiter = neuerPreis;
+      if (geldBisherBezahlt == 0) {
+          preisProLiter = neuerPreis;
+      }   
+      else {
+          System.err.println("Es existiert zurzeit noch ein Tankvorgang, bitte etwas Warten!");
+      }
     }
+    /**
+     * Der Tankvorgang wird mit der Methode "tanken" ausgeführt.
+     * Dafür wird zunächst geprüft, ob Geld eingeworfen wurde, wenn dieses der Fall ist, werden zunächst die Liter die getankt werden können ausgerechnet, indem der bisher gezahlte Betrag durch den Preis Pro Liter 
+     */
     public void tanken ()
     {
+      if (geldBisherBezahlt > 0) {
         getankteLiter = geldBisherBezahlt / preisProLiter;
         getankteLiterGesamt = getankteLiterGesamt + getankteLiter;
         betragGesamt = betragGesamt + geldBisherBezahlt;
@@ -52,5 +76,9 @@ public class Tanksaeule
         System.out.println("Getankte Liter: " + getankteLiter + " " + kraftstoff );
         geldBisherBezahlt = 0;
         getankteLiter = 0;
+    }
+    else {
+        System.err.println("Bitte zunächst Geld einwerfen!");
+    }
     }
 }

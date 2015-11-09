@@ -1,11 +1,14 @@
 #BlueJ class context
 comment0.params=preisproliter\ kraftStoffName
 comment0.target=Tanksaeule(int,\ java.lang.String)
-comment0.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Tankaeule\r\n\ Zun\u00E4chst\ wird\ \r\n
+comment0.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Tankaeule\r\n\ Zunaechst\ wird\ die\ Zapfsaeule\ kreirt,\ welche\ die\ Werte\ f\u00FCr\ den\ Preis\ pro\ Liter\ und\ den\ Kraftstoff\ ben\u00F6tigt.\r\n\ Die\ restlichen\ Werte\ werden\ mit\ 0\ initialisiert.\r\n
 comment1.params=geldeingeworfen
 comment1.target=void\ geldEinwerfen(int)
+comment1.text=\r\n\ Mit\ der\ Methode\ "geldEinwerfen"\ wird\ der\ Einwurf\ des\ Geldes\ in\ die\ Zapfsaeule\ abgegbildet.\r\n\ Dort\ kann\ nun\ Geld\ eingworfen\ werden.\r\n\ Es\ wird\ ausserdem\ gepr\u00FCft,\ ob\ das\ eingeworfene\ Geld\ plausibel\ ist.\r\n
 comment2.params=neuerPreis
 comment2.target=void\ preisAendern(int)
+comment2.text=\r\n\ Mit\ der\ Methode\ "preisAendern"\ kann\ der\ initial\ festgelegte\ Preis\ pro\ Liter\ angepasst\ werden.\r\n\ Es\ wird\ auch\ \u00FCberpr\u00FCft,\ ob\ noch\ ein\ Tankvorgang\ laeuft.\r\n
 comment3.params=
 comment3.target=void\ tanken()
+comment3.text=\r\n\ Der\ Tankvorgang\ wird\ mit\ der\ Methode\ "tanken"\ ausgef\u00FChrt.\r\n\ Daf\u00FCr\ wird\ zun\u00E4chst\ gepr\u00FCft,\ ob\ Geld\ eingeworfen\ wurde,\ wenn\ dieses\ der\ Fall\ ist,\ werden\ zun\u00E4chst\ die\ Liter\ die\ getankt\ werden\ k\u00F6nnen\ ausgerechnet,\ indem\ der\ bisher\ gezahlte\ Betrag\ durch\ den\ Preis\ Pro\ Liter\ \r\n
 numComments=4
