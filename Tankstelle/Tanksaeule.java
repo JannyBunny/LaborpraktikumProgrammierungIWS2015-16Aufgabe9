@@ -22,6 +22,7 @@ public class Tanksaeule
     private String kraftstoff; // Welcher Kraftstoff wird an der Zapfsäule ausgegeben?
     /**
      * Konstruktor für Objekte der Klasse Tankaeule
+     * Zunächst wird 
      */
      public Tanksaeule(int preisproliter,String kraftStoffName)
     {
@@ -43,6 +44,13 @@ public class Tanksaeule
     }
     public void tanken ()
     {
-        return;
+        getankteLiter = geldBisherBezahlt / preisProLiter;
+        getankteLiterGesamt = getankteLiterGesamt + getankteLiter;
+        betragGesamt = betragGesamt + geldBisherBezahlt;
+        System.out.println("An dieser Zapfsaeule kann " + kraftstoff + " in L fuer " + preisProLiter + " Cent Getankt werden");
+        System.out.println("Geld bezahlt: " + geldBisherBezahlt );
+        System.out.println("Getankte Liter: " + getankteLiter + " " + kraftstoff );
+        geldBisherBezahlt = 0;
+        getankteLiter = 0;
     }
 }
