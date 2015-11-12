@@ -20,8 +20,6 @@ public class Tanksaeule
     private String kraftstoff; // Welcher Kraftstoff wird an der Zapfsäule ausgegeben?
     /**
      * Konstruktor für Objekte der Klasse Tankaeule
-     * Zunaechst wird die Zapfsaeule kreirt, welche die Werte für den Preis pro Liter und den Kraftstoff benötigt.
-     * Die restlichen Werte werden mit 0 initialisiert.
      */
      public Tanksaeule(int preisproliter,String kraftStoffName)
     {
@@ -33,67 +31,16 @@ public class Tanksaeule
          geldBisherBezahlt = 0;
 
     }
-    /**
-     * Mit der Methode "geldEinwerfen" wird der Einwurf des Geldes in die Zapfsaeule abgegbildet.
-     * Dort kann nun Geld eingworfen werden.
-     * Es wird ausserdem geprüft, ob das eingeworfene Geld plausibel ist.
-     */
     public void geldEinwerfen (int geldeingeworfen)
     {
-      if (geldeingeworfen >= 0) {
-          geldBisherBezahlt = geldeingeworfen;
-      }
-      else
-      {
-          System.err.println("Bitte nur positive Geldbeträge einwerfen!");
-      }  
+        geldBisherBezahlt = geldeingeworfen;
     }
-    /**
-     * Mit der Methode "preisAendern" kann der initial festgelegte Preis pro Liter angepasst werden.
-     * Es wird auch überprüft, ob noch ein Tankvorgang laeuft.
-     */
     public void preisAendern (int neuerPreis)
     {
-      if (geldBisherBezahlt == 0) {
-          preisProLiter = neuerPreis;
-      }   
-      else {
-          System.err.println("Es existiert zurzeit noch ein Tankvorgang, bitte etwas Warten!");
-      }
+        preisProLiter = neuerPreis;
     }
-    /**
-     * Der Tankvorgang wird mit der Methode "tanken" ausgeführt.
-     * Dafür wird zunächst geprüft, ob Geld eingeworfen wurde, wenn dieses der Fall ist, werden zunächst die Liter die getankt werden können ausgerechnet, indem der bisher gezahlte Betrag durch den Preis Pro Liter 
-     */
     public void tanken ()
     {
-      if (geldBisherBezahlt > 0) {
-        getankteLiter = geldBisherBezahlt / preisProLiter;
-        getankteLiterGesamt = getankteLiterGesamt + getankteLiter;
-        betragGesamt = betragGesamt + geldBisherBezahlt;
-        System.out.println("An dieser Zapfsaeule kann " + kraftstoff + " in L fuer " + preisProLiter + " Cent getankt werden");
-        System.out.println("Quittung:");
-        System.out.println("Geld bezahlt: " + geldBisherBezahlt );
-        System.out.println("Getankte Liter: " + getankteLiter + " " + kraftstoff );
-        geldBisherBezahlt = 0;
-        getankteLiter = 0;
+        getankteLiterGesamt;
     }
-    else {
-        System.err.println("Bitte zunächst Geld einwerfen!");
-    }
-    }
-    /**
-     * Mit der Methode gibGesamtEingenommen wird das Gesamt eingenommene Geld abgefragt werden.
-     */
-    public int gibGesamtEingenommen ()
-    {
-        return betragGesamt;
-    }
-    /**
-     * Mit der Methode gibLiterGesamt wird das gesamt vertankte Benzin in Litern ausgegeben.
-     */
-    public int gibLiterGesamt ()
-    {
-        return getankteLiterGesamt;
-    }
-    }
+}
